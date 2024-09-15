@@ -18,6 +18,7 @@ import { TeamAPI } from './api/team.js'
 import { TimeAttackAPI } from './api/time-attack.js'
 import { TrackAPI } from './api/track.js'
 import { createLogger, logger } from './logger.js'
+import { RateLimiter } from './rate-limiter.js'
 
 export * from './consts.js'
 export * from './helpers.js'
@@ -27,6 +28,7 @@ export default class IracingAPI {
     //
     fetchCookie: FetchCookie
     options: Options
+    rateLimiter: RateLimiter
 
     // API
     car: CarAPI
@@ -52,21 +54,22 @@ export default class IracingAPI {
     constructor(options?: Options) {
         this.fetchCookie = makeFetchCookie(fetch)
         this.options = options ?? DEFAULT_OPTIONS
+        this.rateLimiter = new RateLimiter(this.options)
 
-        this.car = new CarAPI(this.fetchCookie, this.options)
-        this.carClass = new CarClassAPI(this.fetchCookie, this.options)
-        this.constants = new ConstantsAPI(this.fetchCookie, this.options)
-        this.hosted = new HostedAPI(this.fetchCookie, this.options)
-        this.league = new LeagueAPI(this.fetchCookie, this.options)
-        this.lookup = new LookupAPI(this.fetchCookie, this.options)
-        this.member = new MemberAPI(this.fetchCookie, this.options)
-        this.results = new ResultsAPI(this.fetchCookie, this.options)
-        this.season = new SeasonAPI(this.fetchCookie, this.options)
-        this.series = new SeriesAPI(this.fetchCookie, this.options)
-        this.stats = new StatsAPI(this.fetchCookie, this.options)
-        this.team = new TeamAPI(this.fetchCookie, this.options)
-        this.timeAttack = new TimeAttackAPI(this.fetchCookie, this.options)
-        this.track = new TrackAPI(this.fetchCookie, this.options)
+        this.car = new CarAPI(this.fetchCookie, this.options, this.rateLimiter)
+        this.carClass = new CarClassAPI(this.fetchCookie, this.options, this.rateLimiter)
+        this.constants = new ConstantsAPI(this.fetchCookie, this.options, this.rateLimiter)
+        this.hosted = new HostedAPI(this.fetchCookie, this.options, this.rateLimiter)
+        this.league = new LeagueAPI(this.fetchCookie, this.options, this.rateLimiter)
+        this.lookup = new LookupAPI(this.fetchCookie, this.options, this.rateLimiter)
+        this.member = new MemberAPI(this.fetchCookie, this.options, this.rateLimiter)
+        this.results = new ResultsAPI(this.fetchCookie, this.options, this.rateLimiter)
+        this.season = new SeasonAPI(this.fetchCookie, this.options, this.rateLimiter)
+        this.series = new SeriesAPI(this.fetchCookie, this.options, this.rateLimiter)
+        this.stats = new StatsAPI(this.fetchCookie, this.options, this.rateLimiter)
+        this.team = new TeamAPI(this.fetchCookie, this.options, this.rateLimiter)
+        this.timeAttack = new TimeAttackAPI(this.fetchCookie, this.options, this.rateLimiter)
+        this.track = new TrackAPI(this.fetchCookie, this.options, this.rateLimiter)
 
         createLogger(this.options)
     }

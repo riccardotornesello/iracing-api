@@ -11,10 +11,10 @@ export class API {
     options: Options
     rateLimiter: RateLimiter
 
-    constructor(fetchCookie: FetchCookie, options: Options) {
+    constructor(fetchCookie: FetchCookie, options: Options, rateLimiter: RateLimiter) {
         this.fetchCookie = fetchCookie
         this.options = options
-        this.rateLimiter = new RateLimiter(options)
+        this.rateLimiter = rateLimiter
     }
 
     _getData = async <Data = Record<string, unknown>, Parameters = void>(
