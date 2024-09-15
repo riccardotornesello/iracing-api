@@ -7,7 +7,7 @@
     "docs:serve": "pnpm --filter iracing-api-docs serve",
     "format": "prettier --write ."
   },
-  "packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72",
+  "packageManager": "pnpm@8.14.0+sha1.bb42032ff80dba5f9245bc1b03470d2fa0b7fb2f",
   "devDependencies": {
     "prettier": "^3.3.3"
   }
