@@ -77,4 +77,22 @@ export class API {
 
         return `${API_URL}${endpoint}${searchParams ? `?${searchParams}` : ''}`
     }
+
+    _getChunks = async (chunks: Record<string, any>) => {
+        if (!chunks) return []
+
+        const baseUrl = chunks['base_download_url']
+        const urls = chunks['chunk_file_names'].map(
+            (chunkFileName: string) => `${baseUrl}${chunkFileName}`
+        )
+
+        const listOfChunks = await Promise.all(
+            urls.map(async (url: string) => {
+                const response = await fetch(url)
+                return response.json()
+            })
+        )
+
+        return listOfChunks.flat()
+    }
 }
