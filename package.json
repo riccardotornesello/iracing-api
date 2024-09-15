@@ -4,6 +4,11 @@
   "scripts": {
     "docs:dev": "pnpm --filter iracing-api-docs dev",
     "docs:build": "pnpm --filter iracing-api-docs build",
-    "docs:serve": "pnpm --filter iracing-api-docs serve"
+    "docs:serve": "pnpm --filter iracing-api-docs serve",
+    "format": "prettier --write ."
+  },
+  "packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72",
+  "devDependencies": {
+    "prettier": "^3.3.3"
   }
 }
