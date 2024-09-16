@@ -7,6 +7,7 @@ All methods in the `Car Class` API are available through the `carClass` property
 Get the car classes.
 
 ```ts
-const carClasses = await ir.carClass.getCarClasses();
+const carClasses = await ir.carClass.getCarClasses()
 ```
+
 <sub>https://members-ng.iracing.com/data/carclass/get</sub>

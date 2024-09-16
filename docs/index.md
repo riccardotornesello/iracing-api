@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "iRacing API"
   text: "A wrapper for iRacing API"
-#  tagline: My great project tagline
+  #  tagline: My great project tagline
   actions:
     - theme: brand
       text: Get Started
@@ -22,4 +22,3 @@ features:
   - title: Easy to use
     details: The API is designed to be easy to use and understand.
 ---
-
