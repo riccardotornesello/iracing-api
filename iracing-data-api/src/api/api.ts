@@ -1,10 +1,12 @@
-import { camelizeKeys, decamelizeKeys } from "humps"
+import humps from "humps"
 
 import { API_URL } from "../consts"
 import { createLogger } from "../logger"
 import { RateLimiter } from "../rate-limiter"
 import type { FetchCookie, Options } from "../types"
 import { IracingDataApiException } from "../exceptions"
+
+const { camelizeKeys, decamelizeKeys } = humps
 
 export class API {
   fetchCookie: FetchCookie
@@ -34,14 +36,10 @@ export class API {
         await this.rateLimiter.waitForReset()
       }
 
-      const snakeParams = decamelizeKeys(params)
+      const url = this._getUrl(endpoint, params)
 
-      const parsedParams = `[${Object.entries(snakeParams ?? {})
-        .map(([key, value]) => `${key}=${value}`)
-        .join(", ")}]`
-      this.logger(`Getting data from '${endpoint}'`, parsedParams)
+      this.logger(`Getting data from '${url}'`)
 
-      const url = this._getUrl(endpoint, snakeParams)
       const response = await this.fetchCookie(url, {
         cache: "no-cache",
         credentials: "include",
@@ -50,49 +48,43 @@ export class API {
 
       const data = await response.json()
 
-      if (response.status !== 200) {
+      if (!data || response.status !== 200) {
         throw new IracingDataApiException(response.status, url, data)
       }
 
-      if (data?.link) {
-        return await this._getLinkData<Data>(data?.link)
-      }
-
-      return data as Data | undefined
+      return (await this._getLinkData(data.link)) as Data
     } catch (error) {
       this.logger(`Error getting data from '${endpoint}'`)
       return undefined
     }
   }
 
-  _getLinkData = async <Data>(
-    link: string | undefined
-  ): Promise<Data | undefined> => {
-    if (!link) return undefined
-
+  _getLinkData = async (link: string) => {
     const response = await fetch(link)
     const data = await response.json()
 
-    if (!data) return undefined
+    if (!data || response.status !== 200) {
+      throw new IracingDataApiException(response.status, link, data)
+    }
 
-    return camelizeKeys(data) as Data
+    if (data["chunk_info"]) {
+      data.data = await this._getChunks(data["chunk_info"])
+    }
+
+    return camelizeKeys(data)
   }
 
   _getUrl = <Parameters = Record<string, unknown>>(
     endpoint: string,
     params?: Parameters
   ) => {
-    // Filter out empty values
     const searchParams =
-      params &&
-      new URLSearchParams(JSON.parse(JSON.stringify(params))).toString()
+      params && new URLSearchParams(decamelizeKeys(params)).toString()
 
     return `${API_URL}${endpoint}${searchParams ? `?${searchParams}` : ""}`
   }
 
   _getChunks = async (chunks: Record<string, any>) => {
-    if (!chunks) return []
-
     const baseUrl = chunks["base_download_url"]
     const urls = chunks["chunk_file_names"].map(
       (chunkFileName: string) => `${baseUrl}${chunkFileName}`
