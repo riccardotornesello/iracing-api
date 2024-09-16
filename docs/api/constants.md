@@ -2,32 +2,32 @@
 
 All methods in the `Constants` API are available through the `constants` property of the `iRacingAPI` instance.
 
-## Categories
+## categories
 
-Get the categories.
+Constant; returned directly as an array of objects.
 
 ```ts
-const categories = await ir.constants.getCategories()
+const data = await ir.constants.categories()
 ```
 
 <sub>https://members-ng.iracing.com/data/constants/categories</sub>
 
-## Divisions
+## divisions
 
-Get the divisions.
+Constant; returned directly as an array of objects.
 
 ```ts
-const divisions = await ir.constants.getDivisions()
+const data = await ir.constants.divisions()
 ```
 
 <sub>https://members-ng.iracing.com/data/constants/divisions</sub>
 
-## Event Types
+## eventTypes
 
-Get the event types.
+Constant; returned directly as an array of objects.
 
 ```ts
-const eventTypes = await ir.constants.getEventTypes()
+const data = await ir.constants.eventTypes()
 ```
 
-<sub>https://members-ng.iracing.com/data/constants/eventtypes</sub>
+<sub>https://members-ng.iracing.com/data/constants/event_types</sub>

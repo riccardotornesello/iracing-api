@@ -2,62 +2,57 @@
 
 All methods in the `Series` API are available through the `series` property of the `iRacingAPI` instance.
 
-## Assets
+## assets
 
-Get the series assets.
-
-- Image paths are relative to https://images-static.iracing.com/
+image paths are relative to https://images-static.iracing.com/.
 
 ```ts
-const seriesAssets = await ir.series.getSeriesAssets()
+const data = await ir.series.assets()
 ```
 
 <sub>https://members-ng.iracing.com/data/series/assets</sub>
 
-## Series
-
-Get the series data.
+## get
 
 ```ts
-const seriesData = await ir.series.getSeriesData()
+const data = await ir.series.get()
 ```
 
 <sub>https://members-ng.iracing.com/data/series/get</sub>
 
-## Past Seasons
+## pastSeasons
 
-Get all seasons for the series.
-
-- Filter list by `official: true` for seasons with standings.
+Get all seasons for a series.
+Filter list by official:true for seasons with standings.
 
 ```ts
-const pastSeasons = await ir.series.getSeriesPastSeasons(params)
+const data = await ir.series.pastSeasons(params)
 ```
 
 Available parameters:
 
-- `seriesId: number` - The series ID to get the past seasons for.
+- **seriesId** - number (required)
 
 <sub>https://members-ng.iracing.com/data/series/past_seasons</sub>
 
-## Seasons
+## seasons
 
 ```ts
-const seasons = await ir.series.getSeriesSeasons(params)
+const data = await ir.series.seasons(params)
 ```
 
 Available parameters:
 
-- `includeSeries?: boolean` - Include the series in the data.
+- **includeSeries** - boolean
 
-## Stats
+<sub>https://members-ng.iracing.com/data/series/seasons</sub>
 
-Get the series stats.
+## statsSeries
 
-- To get series and seasons for which standings should be available, filter the list by `official: true`.
+To get series and seasons for which standings should be available, filter the list by official: true.
 
 ```ts
-const seriesStats = await ir.series.getSeriesStats()
+const data = await ir.series.statsSeries()
 ```
 
 <sub>https://members-ng.iracing.com/data/series/stats_series</sub>

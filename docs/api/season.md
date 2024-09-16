@@ -2,51 +2,53 @@
 
 All methods in the `Season` API are available through the `season` property of the `iRacingAPI` instance.
 
-## List
-
-Get the seasons.
+## list
 
 ```ts
-const seasons = await ir.season.getSeasonList(params)
+const data = await ir.season.list(params)
 ```
 
 Available parameters:
 
-- `seasonYear: number` - The season year to get the seasons for.
-- `seasonQuarter: number` - The season quarter to get the seasons for.
+- **seasonYear** - number (required)
+- **seasonQuarter** - number (required)
 
 <sub>https://members-ng.iracing.com/data/season/list</sub>
 
-## Race Guide
-
-Get the season race guide.
+## raceGuide
 
 ```ts
-const raceGuide = await ir.season.getSeasonRaceGuide(params)
+const data = await ir.season.raceGuide(params)
 ```
 
 Available parameters:
 
-- `from?: string` - The start date
-  - [`ISO-8601`](https://en.wikipedia.org/wiki/ISO_8601) offset format.
-  - Defaults to the current time.
-  - Include sessions with start times up to 3 hours after this time.
-  - Times in the past will be rewritten to the current time.
-- `includeEndAfterFrom?: boolean` - Include sessions which start before `from` but end after.
+- **from** - string - ISO-8601 offset format. Defaults to the current time. Include sessions with start times up to 3 hours after this time. Times in the past will be rewritten to the current time.
+- **includeEndAfterFrom** - boolean - Include sessions which start before 'from' but end after.
 
 <sub>https://members-ng.iracing.com/data/season/race_guide</sub>
 
-## Spectator Subsession Ids
-
-Get the season spectator subsession ids.
+## spectatorSubsessionids
 
 ```ts
-const spectatorSubsessionIds = await ir.season.getSpectatorSubsessionIds(params)
+const data = await ir.season.spectatorSubsessionids(params)
 ```
 
 Available parameters:
 
-- `eventTypes?: number[]` - Types of events to include in the search.
-  - Defaults to all.
+- **eventTypes** - number[] - Types of events to include in the search. Defaults to all. ?event_types=2,3,4,5
 
-<sub>https://members-ng.iracing.com/data/season/spectator_subsession_ids</sub>
+<sub>https://members-ng.iracing.com/data/season/spectator_subsessionids</sub>
+
+## spectatorSubsessionidsDetail
+
+```ts
+const data = await ir.season.spectatorSubsessionidsDetail(params)
+```
+
+Available parameters:
+
+- **eventTypes** - number[] - Types of events to include in the search. Defaults to all. ?event_types=2,3,4,5
+- **seasonIds** - number[] - Seasons to include in the search. Defaults to all. ?season_ids=513,937
+
+<sub>https://members-ng.iracing.com/data/season/spectator_subsessionids_detail</sub>

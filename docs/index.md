@@ -3,9 +3,8 @@
 layout: home
 
 hero:
-  name: "iRacing API"
+  name: "iRacing data API"
   text: "A wrapper for iRacing API"
-  #  tagline: My great project tagline
   actions:
     - theme: brand
       text: Get Started

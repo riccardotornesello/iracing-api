@@ -2,95 +2,73 @@
 
 All methods in the `Member` API are available through the `member` property of the `iRacingAPI` instance.
 
-## Awards
-
-Get the awards.
+## awards
 
 ```ts
-const awards = await ir.member.getAwards()
+const data = await ir.member.awards(params)
 ```
 
 Available parameters:
 
-- `customerId?: number` - The customer ID of the member to get the awards for.
-  - Defaults to the authenticated member.
+- **custId** - number - Defaults to the authenticated member.
 
 <sub>https://members-ng.iracing.com/data/member/awards</sub>
 
-## Chart Data
-
-Get the chart data.
+## chartData
 
 ```ts
-const chartData = await ir.member.getChartData()
+const data = await ir.member.chartData(params)
 ```
 
 Available parameters:
 
-- `customerId?: number` - The customer ID of the member to get the chart data for.
-  - Defaults to the authenticated member.
-- `categoryId: number` - The category ID
-  - `1` - Oval
-  - `2` - Road
-  - `3` - Dirt Oval
-  - `4` - Dirt Road
-- `chartType: number` - The chart type
-  - `1` - iRating
-  - `2` - TT Rating
-  - `3` - License/SR
+- **custId** - number - Defaults to the authenticated member.
+- **categoryId** - number (required) - 1 - Oval; 2 - Road; 3 - Dirt oval; 4 - Dirt road
+- **chartType** - number (required) - 1 - iRating; 2 - TT Rating; 3 - License/SR
 
 <sub>https://members-ng.iracing.com/data/member/chart_data</sub>
 
-## Data
-
-Get the member data.
+## get
 
 ```ts
-const memberData = await ir.member.getMemberData(params)
+const data = await ir.member.get(params)
 ```
 
 Available parameters:
 
-- `customerIds: number[]` - The customer IDs of the members to get the data for.
-- `includeLicenses?: boolean` - Include the licenses in the data.
+- **custIds** - number[] (required) - ?cust_ids=2,3,4
+- **includeLicenses** - boolean
 
 <sub>https://members-ng.iracing.com/data/member/get</sub>
 
-## Info
+## info
 
-Get the member info.
-
-- Always the authenticated member.
+Always the authenticated member.
 
 ```ts
-const memberInfo = await ir.member.getMemberInfo()
+const data = await ir.member.info()
 ```
 
 <sub>https://members-ng.iracing.com/data/member/info</sub>
 
-## Participation Credits
+## participationCredits
 
-Get the participation credits.
-
-- Always the authenticated member.
+Always the authenticated member.
 
 ```ts
-const participationCredits = await ir.member.getParticipationCredits()
+const data = await ir.member.participationCredits()
 ```
 
 <sub>https://members-ng.iracing.com/data/member/participation_credits</sub>
 
-## Profile
-
-Get the member profile.
+## profile
 
 ```ts
-const memberProfile = await ir.member.getMemberProfile(params)
+const data = await ir.member.profile(params)
 ```
 
 Available parameters:
 
-- `customerId?: number` - The customer ID of the member to get the profile for.
-  - Defaults to the authenticated member.
+- **custId** - number - Defaults to the authenticated member.
 
 <sub>https://members-ng.iracing.com/data/member/profile</sub>

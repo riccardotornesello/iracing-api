@@ -2,24 +2,20 @@
 
 All methods in the `Track` API are available through the `track` property of the `iRacingAPI` instance.
 
-## Assets
+## assets
 
-Get the track assets.
-
-- Image paths are relative to https://images-static.iracing.com/
+image paths are relative to https://images-static.iracing.com/.
 
 ```ts
-const trackAssets = await ir.track.getTrackAssets()
+const data = await ir.track.assets()
 ```
 
 <sub>https://members-ng.iracing.com/data/track/assets</sub>
 
-## Tracks
-
-Get the tracks.
+## get
 
 ```ts
-const tracks = await ir.track.getTracks()
+const data = await ir.track.get()
 ```
 
 <sub>https://members-ng.iracing.com/data/track/get</sub>

@@ -2,253 +2,203 @@
 
 All methods in the `Stats` API are available through the `stats` property of the `iRacingAPI` instance.
 
-## Member Bests
-
-Get the member bests.
+## memberBests
 
 ```ts
-const memberBests = await ir.stats.getMemberBests(params)
+const data = await ir.stats.memberBests(params)
 ```
 
 Available parameters:
 
-- `customerId?: number` - The customer ID of the member to get the bests for.
-  - Defaults to the authenticated member.
-- `carId?: number` - The car ID to get the bests for.
-  - First call should exclude `carId`.
-  - Use `carsDriven` list in return for subsequent calls.
+- **custId** - number - Defaults to the authenticated member.
+- **carId** - number - First call should exclude car_id; use cars_driven list in return for subsequent calls.
 
 <sub>https://members-ng.iracing.com/data/stats/member_bests</sub>
 
-## Member Career
-
-Get the member career.
+## memberCareer
 
 ```ts
-const memberCareer = await ir.stats.getMemberCareer(params)
+const data = await ir.stats.memberCareer(params)
 ```
 
 Available parameters:
 
-- `customerId?: number` - The customer ID of the member to get the career for.
-  - Defaults to the authenticated member.
+- **custId** - number - Defaults to the authenticated member.
 
 <sub>https://members-ng.iracing.com/data/stats/member_career</sub>
 
-## Member Division
+## memberDivision
 
-Get the member division.
+Divisions are 0-based: 0 is Division 1, 10 is Rookie.
+See /data/constants/divisons for more information.
+Always for the authenticated member.
 
 ```ts
-const memberDivision = await ir.stats.getMemberDivision(params)
+const data = await ir.stats.memberDivision(params)
 ```
 
 Available parameters:
 
-- `seasonId: number` - The season ID to get the division for.
-- `eventType: number` - The event type to get the division for.
-  - The event type code for the division type:
-  - `4` - Time Trial
-  - `5` - Race
+- **seasonId** - number (required)
+- **eventType** - number (required) - The event type code for the division type: 4 - Time Trial; 5 - Race
 
 <sub>https://members-ng.iracing.com/data/stats/member_division</sub>
 
-## Member Recent Races
-
-Get the member's recent races.
+## memberRecap
 
 ```ts
-const memberRecentRaces = await ir.stats.getMemberRecentRaces(params)
+const data = await ir.stats.memberRecap(params)
 ```
 
 Available parameters:
 
-- `customerId?: number` - The customer ID of the member to
-  - Defaults to the authenticated member.
-
-<sub>https://members-ng.iracing.com/data/stats/member_recent_races</sub>
-
-## Member Recap
-
-Get the member recap.
-
-```ts
-const memberRecap = await ir.stats.getMemberRecap(params)
-```
-
-Available parameters:
-
-- `customerId?: number` - The customer ID of the member to get the recap for.
-  - Defaults to the authenticated member.
-- `year?: number` - The year to get the recap for.
-  - If not supplied, the current calendar year (UTC) is used.
-- `season?: number` - The season (quarter) within the year to get the recap for.
-  - If not supplied, the recap will be for the entire year.
+- **custId** - number - Defaults to the authenticated member.
+- **year** - number - Season year; if not supplied the current calendar year (UTC) is used.
+- **season** - number - Season (quarter) within the year; if not supplied the recap will be fore the entire year.
 
 <sub>https://members-ng.iracing.com/data/stats/member_recap</sub>
 
-## Member Summary
-
-Get the member summary.
+## memberRecentRaces
 
 ```ts
-const memberSummary = await ir.stats.getMemberSummary(params)
+const data = await ir.stats.memberRecentRaces(params)
 ```
 
 Available parameters:
 
-- `customerId?: number` - The customer ID of the member to get the summary for.
-  - Defaults to the authenticated member.
+- **custId** - number - Defaults to the authenticated member.
+
+<sub>https://members-ng.iracing.com/data/stats/member_recent_races</sub>
+
+## memberSummary
+
+```ts
+const data = await ir.stats.memberSummary(params)
+```
+
+Available parameters:
+
+- **custId** - number - Defaults to the authenticated member.
 
 <sub>https://members-ng.iracing.com/data/stats/member_summary</sub>
 
-## Member Yearly Stats
-
-Get the member yearly stats.
+## memberYearly
 
 ```ts
-const memberYearlyStats = await ir.stats.getMemberYearlyStats(params)
+const data = await ir.stats.memberYearly(params)
 ```
 
 Available parameters:
 
-- `customerId?: number` - The customer ID of the member to get the yearly stats for.
-  - Defaults to the authenticated member.
+- **custId** - number - Defaults to the authenticated member.
 
-<sub>https://members-ng.iracing.com/data/stats/member_yearly_stats</sub>
+<sub>https://members-ng.iracing.com/data/stats/member_yearly</sub>
 
-## Driver Season Standings
-
-Get the driver season standings.
+## seasonDriverStandings
 
 ```ts
-const driverSeasonStandings = await ir.stats.getDriverSeasonStandings(params)
+const data = await ir.stats.seasonDriverStandings(params)
 ```
 
 Available parameters:
 
-- `seasonId: number` - The season ID to get the driver season standings for.
-- `carClassId: number` - The car class ID to get the driver season standings for.
-- `clubId? number` - The club ID to get the driver season standings for.
-  - Defaults to all (`-1`).
-- `division?: number` - The division to get the driver season standings for.
-  - Divisions are 0-based:
-  - `0` is Division 1,
-  - `10` is Rookie.
-  - See [`constants.getDivisions()`](/api/constants.html#divisions) for more information.
-  - Defaults to all.
-- `raceWeekNumber?: number` - The race week number to get the driver season standings for.
-  - The first race week of a season is `0`.
+- **seasonId** - number (required)
+- **carClassId** - number (required)
+- **clubId** - number - Defaults to all (-1).
+- **division** - number - Divisions are 0-based: 0 is Division 1, 10 is Rookie. See /data/constants/divisons for more information. Defaults to all.
+- **raceWeekNum** - number - The first race week of a season is 0.
 
 <sub>https://members-ng.iracing.com/data/stats/season_driver_standings</sub>
 
-## Supersession Season Standings
-
-Get the supersession season standings.
+## seasonSupersessionStandings
 
 ```ts
-const supersessionSeasonStandings =
-  await ir.stats.getSupersessionSeasonStandings()
+const data = await ir.stats.seasonSupersessionStandings(params)
 ```
 
 Available parameters:
 
-- `seasonId: number` - The season ID to get the driver season standings for.
-- `carClassId: number` - The car class ID to get the driver season standings for.
-- `clubId? number` - The club ID to get the driver season standings for.
-  - Defaults to all (`-1`).
-- `division?: number` - The division to get the driver season standings for.
-  - Divisions are 0-based:
-  - `0` is Division 1,
-  - `10` is Rookie.
-  - See [`constants.getDivisions()`](/api/constants.html#divisions) for more information.
-  - Defaults to all.
-- `raceWeekNumber?: number` - The race week number to get the driver season standings for.
-  - The first race week of a season is `0`.
+- **seasonId** - number (required)
+- **carClassId** - number (required)
+- **clubId** - number - Defaults to all (-1).
+- **division** - number - Divisions are 0-based: 0 is Division 1, 10 is Rookie. See /data/constants/divisons for more information. Defaults to all.
+- **raceWeekNum** - number - The first race week of a season is 0.
 
 <sub>https://members-ng.iracing.com/data/stats/season_supersession_standings</sub>
 
-## Team Season Standings
-
-Get the team season standings.
+## seasonTeamStandings
 
 ```ts
-const teamSeasonStandings = await ir.stats.getTeamSeasonStandings()
+const data = await ir.stats.seasonTeamStandings(params)
 ```
 
 Available parameters:
 
-- `seasonId: number` - The season ID to get the driver season standings for.
-- `carClassId: number` - The car class ID to get the driver season standings for.
-- `raceWeekNumber?: number` - The race week number to get the driver season standings for.
-  - The first race week of a season is `0`.
+- **seasonId** - number (required)
+- **carClassId** - number (required)
+- **raceWeekNum** - number - The first race week of a season is 0.
 
 <sub>https://members-ng.iracing.com/data/stats/season_team_standings</sub>
 
-## Time Trial Season Standings
-
-Get the time trial season standings.
+## seasonTtStandings
 
 ```ts
-const timeTrialSeasonStandings = await ir.stats.getTimeTrialSeasonStandings()
+const data = await ir.stats.seasonTtStandings(params)
 ```
 
 Available parameters:
 
-- `seasonId: number` - The season ID to get the driver season standings for.
-- `carClassId: number` - The car class ID to get the driver season standings for.
-- `clubId? number` - The club ID to get the driver season standings for.
-  - Defaults to all (`-1`).
-- `division?: number` - The division to get the driver season standings for.
-  - Divisions are 0-based:
-  - `0` is Division 1,
-  - `10` is Rookie.
-  - See [`constants.getDivisions()`](/api/constants.html#divisions) for more information.
-  - Defaults to all.
-- `raceWeekNumber?: number` - The race week number to get the driver season standings for.
-  - The first race week of a season is `0`.
+- **seasonId** - number (required)
+- **carClassId** - number (required)
+- **clubId** - number - Defaults to all (-1).
+- **division** - number - Divisions are 0-based: 0 is Division 1, 10 is Rookie. See /data/constants/divisons for more information. Defaults to all.
+- **raceWeekNum** - number - The first race week of a season is 0.
+
+<sub>https://members-ng.iracing.com/data/stats/season_tt_standings</sub>
+
+## seasonTtResults
+
+```ts
+const data = await ir.stats.seasonTtResults(params)
+```
+
+Available parameters:
+
+- **seasonId** - number (required)
+- **carClassId** - number (required)
+- **raceWeekNum** - number (required) - The first race week of a season is 0.
+- **clubId** - number - Defaults to all (-1).
+- **division** - number - Divisions are 0-based: 0 is Division 1, 10 is Rookie. See /data/constants/divisons for more information. Defaults to all.
 
 <sub>https://members-ng.iracing.com/data/stats/season_tt_results</sub>
 
-## Qualify Season Standings
-
-Get the qualify season standings.
+## seasonQualifyResults
 
 ```ts
-const qualifySeasonStandings = await ir.stats.getQualifySeasonStandings()
+const data = await ir.stats.seasonQualifyResults(params)
 ```
 
 Available parameters:
 
-- `seasonId: number` - The season ID to get the driver season standings for.
-- `carClassId: number` - The car class ID to get the driver season standings for.
-- `clubId? number` - The club ID to get the driver season standings for.
-  - Defaults to all (`-1`).
-- `division?: number` - The division to get the driver season standings for.
-  - Divisions are 0-based:
-  - `0` is Division 1,
-  - `10` is Rookie.
-  - See [`constants.getDivisions()`](/api/constants.html#divisions) for more information.
-  - Defaults to all.
-- `raceWeekNumber?: number` - The race week number to get the driver season standings for.
-  - The first race week of a season is `0`.
+- **seasonId** - number (required)
+- **carClassId** - number (required)
+- **raceWeekNum** - number (required) - The first race week of a season is 0.
+- **clubId** - number - Defaults to all (-1).
+- **division** - number - Divisions are 0-based: 0 is Division 1, 10 is Rookie. See /data/constants/divisons for more information. Defaults to all.
 
 <sub>https://members-ng.iracing.com/data/stats/season_qualify_results</sub>
 
-## World Records
-
-Get the world records.
+## worldRecords
 
 ```ts
-const worldRecords = await ir.stats.getWorldRecords()
+const data = await ir.stats.worldRecords(params)
 ```
 
 Available parameters:
 
-- `carId: number` - The car ID to get the world records for.
-- `trackId: number` - The track ID to get the world records for.
-- `seasonYear?: number` - Limit best times to a given year.
-- `seasonQuarter?: number` - Limit best times to a given quarter.
-  - Only applicable when year is used.
+- **carId** - number (required)
+- **trackId** - number (required)
+- **seasonYear** - number - Limit best times to a given year.
+- **seasonQuarter** - number - Limit best times to a given quarter; only applicable when year is used.
 
 <sub>https://members-ng.iracing.com/data/stats/world_records</sub>
