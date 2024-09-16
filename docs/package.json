@@ -1,6 +1,6 @@
 {
-  "name": "iracing-api-docs",
-  "version": "1.0.0",
+  "name": "iracing-data-api-docs",
+  "version": "0.1.0",
   "devDependencies": {
     "vitepress": "^1.0.2",
     "vue": "^3.4.21"

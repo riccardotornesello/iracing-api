@@ -1,12 +1,12 @@
 {
-  "name": "iracing-api",
-  "version": "0.4.3",
+  "name": "iracing-data-api",
+  "version": "0.1.0",
   "description": "Javascript client for iracing API",
   "exports": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "tsup src/index.ts --format cjs,esm --dts",
     "format": "eslint --ext .js,.ts src/ --fix; prettier . --write",
     "prepare": "pnpm run build",
     "prepublishOnly": "pnpm run format",
@@ -14,19 +14,15 @@
     "postversion": "git push && git push --tags",
     "patch": "version patch"
   },
-  "files": [
-    "lib/**/*"
-  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TheMich4/iracing-api.git"
+    "url": "git+https://github.com/riccardotornesello/iracing-data-api.git"
   },
-  "author": "Michal Dyczkowski",
-  "license": "MIT",
+  "author": "Riccardo Tornesello",
   "bugs": {
-    "url": "https://github.com/TheMich4/iracing-api/issues"
+    "url": "https://github.com/riccardotornesello/iracing-data-api/issues"
   },
-  "homepage": "https://iracing-api.dyczkowski.dev/",
+  "homepage": "https://github.com/riccardotornesello/iracing-data-api",
   "dependencies": {
     "crypto-js": "^4.1.1",
     "fetch-cookie": "^2.1.0",
@@ -42,6 +38,8 @@
     "@typescript-eslint/parser": "^6.6.0",
     "eslint": "^8.49.0",
     "prettier": "3.1.0",
+    "semantic-release": "^24.1.1",
+    "tsup": "^8.2.4",
     "typescript": "^4.9.5"
   },
   "keywords": [

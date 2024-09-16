@@ -79,7 +79,10 @@ export class API {
     params?: Parameters
   ) => {
     const searchParams =
-      params && new URLSearchParams(decamelizeKeys(params)).toString()
+      params &&
+      new URLSearchParams(
+        decamelizeKeys(params) as Record<string, string>
+      ).toString()
 
     return `${API_URL}${endpoint}${searchParams ? `?${searchParams}` : ""}`
   }

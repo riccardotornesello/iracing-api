@@ -1,4 +1,4 @@
-import { Options } from "./types.d"
+import { Options } from "./types"
 
 // TODO: replace with actual logger
 export const createLogger = (options: Options) => {
