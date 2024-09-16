@@ -1,7 +1,7 @@
 import makeFetchCookie from "fetch-cookie"
 
-import { API_URL, DEFAULT_OPTIONS } from "./consts.js"
-import { encryptPassword } from "./helpers.js"
+import { API_URL, DEFAULT_OPTIONS } from "./consts"
+import { encryptPassword } from "./helpers"
 import { createLogger } from "./logger"
 import { RateLimiter } from "./rate-limiter"
 import type { FetchCookie, Options } from "./types"
@@ -9,7 +9,7 @@ import type { FetchCookie, Options } from "./types"
 import { CarAPI } from "./api/car"
 import { CarclassAPI } from "./api/carclass"
 import { ConstantsAPI } from "./api/constants"
-import { DriverStatsByCategoryAPI } from "./api/driver_stats_by_category.js"
+import { DriverStatsByCategoryAPI } from "./api/driver_stats_by_category"
 import { HostedAPI } from "./api/hosted"
 import { LeagueAPI } from "./api/league"
 import { LookupAPI } from "./api/lookup"
@@ -24,7 +24,8 @@ import { TrackAPI } from "./api/track"
 
 export * from "./types"
 export * from "./api/types"
-export * from "./consts.js"
+export * from "./consts"
+export * from "./exceptions"
 
 export default class IracingAPI {
   //

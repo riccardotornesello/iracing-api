@@ -1,11 +1,10 @@
-import humps from "humps"
+import { camelizeKeys, decamelizeKeys } from "humps"
 
 import { API_URL } from "../consts"
 import { createLogger } from "../logger"
 import { RateLimiter } from "../rate-limiter"
 import type { FetchCookie, Options } from "../types"
-
-const { camelizeKeys } = humps
+import { IracingDataApiException } from "../exceptions"
 
 export class API {
   fetchCookie: FetchCookie
@@ -35,12 +34,14 @@ export class API {
         await this.rateLimiter.waitForReset()
       }
 
-      const parsedParams = `[${Object.entries(params ?? {})
+      const snakeParams = decamelizeKeys(params)
+
+      const parsedParams = `[${Object.entries(snakeParams ?? {})
         .map(([key, value]) => `${key}=${value}`)
         .join(", ")}]`
       this.logger(`Getting data from '${endpoint}'`, parsedParams)
 
-      const url = this._getUrl(endpoint, params)
+      const url = this._getUrl(endpoint, snakeParams)
       const response = await this.fetchCookie(url, {
         cache: "no-cache",
         credentials: "include",
@@ -48,6 +49,10 @@ export class API {
       this.rateLimiter.updateRateLimit(response)
 
       const data = await response.json()
+
+      if (response.status !== 200) {
+        throw new IracingDataApiException(response.status, url, data)
+      }
 
       if (data?.link) {
         return await this._getLinkData<Data>(data?.link)
