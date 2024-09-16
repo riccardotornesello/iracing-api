@@ -3,16 +3,16 @@
 ## Installation
 
 ```bash
-npm install iracing-api
-yarn add iracing-api
-pnpm i iracing-api
-bun i iracing-api
+npm install iracing-data-api
+yarn add iracing-data-api
+pnpm i iracing-data-api
+bun i iracing-data-api
 ```
 
 ## Basic Usage
 
 ```typescript
-import IracingAPI from "iracing-api"
+import IracingAPI from "iracing-data-api"
 
 const irUser = "FOO@gmail.com"
 const irPass = "BAR"

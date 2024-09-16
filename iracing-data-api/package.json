@@ -1,9 +1,16 @@
 {
   "name": "iracing-data-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Javascript client for iracing API",
-  "exports": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riccardotornesello/iracing-data-api.git"
+  },
+  "author": "Riccardo Tornesello",
+  "bugs": {
+    "url": "https://github.com/riccardotornesello/iracing-data-api/issues"
+  },
+  "homepage": "https://github.com/riccardotornesello/iracing-data-api",
   "type": "module",
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
@@ -14,15 +21,6 @@
     "postversion": "git push && git push --tags",
     "patch": "version patch"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/riccardotornesello/iracing-data-api.git"
-  },
-  "author": "Riccardo Tornesello",
-  "bugs": {
-    "url": "https://github.com/riccardotornesello/iracing-data-api/issues"
-  },
-  "homepage": "https://github.com/riccardotornesello/iracing-data-api",
   "dependencies": {
     "crypto-js": "^4.1.1",
     "fetch-cookie": "^2.1.0",
@@ -42,13 +40,21 @@
     "tsup": "^8.2.4",
     "typescript": "^4.9.5"
   },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "keywords": [
     "iracing",
     "api",
     "client",
     "javascript",
     "typescript",
-    "iracing-api",
-    "iracing-api-client"
+    "iracing-data-api",
+    "iracing-data-api-client",
+    "iracing-data-api"
   ]
 }

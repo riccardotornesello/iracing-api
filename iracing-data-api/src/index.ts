@@ -147,7 +147,7 @@ export default class IracingAPI {
     if (response.status !== 200) {
       this.logger("Login failed...")
       return {
-        error: response.statusText ?? "Failed to login to iracing-api",
+        error: response.statusText ?? "Failed to login to iracing-data-api",
       }
     }
 

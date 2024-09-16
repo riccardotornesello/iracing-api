@@ -6,11 +6,7 @@ settings:
 
 importers:
 
-  .:
-    devDependencies:
-      prettier:
-        specifier: ^3.3.3
-        version: 3.3.3
+  .: {}
 
   docs:
     devDependencies:
@@ -20,49 +16,6 @@ importers:
       vue:
         specifier: ^3.4.21
         version: 3.4.21
-
-  iracing-api:
-    dependencies:
-      crypto-js:
-        specifier: ^4.1.1
-        version: 4.2.0
-      fetch-cookie:
-        specifier: ^2.1.0
-        version: 2.2.0
-      humps:
-        specifier: ^2.0.1
-        version: 2.0.1
-      zod:
-        specifier: ^3.22.4
-        version: 3.22.4
-    devDependencies:
-      '@types/crypto-js':
-        specifier: ^4.1.1
-        version: 4.2.2
-      '@types/humps':
-        specifier: ^2.0.2
-        version: 2.0.6
-      '@types/node':
-        specifier: ^18.13.0
-        version: 18.19.30
-      '@types/tough-cookie':
-        specifier: ^4.0.2
-        version: 4.0.5
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^6.6.0
-        version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@4.9.5)
-      '@typescript-eslint/parser':
-        specifier: ^6.6.0
-        version: 6.21.0(eslint@8.57.0)(typescript@4.9.5)
-      eslint:
-        specifier: ^8.49.0
-        version: 8.57.0
-      prettier:
-        specifier: 3.1.0
-        version: 3.1.0
-      typescript:
-        specifier: ^4.9.5
-        version: 4.9.5
 
   iracing-data-api:
     dependencies:
@@ -3716,12 +3669,6 @@ packages:
 
   /prettier@3.1.0:
     resolution: {integrity: sha512-TQLvXjq5IAibjh8EpBIkNKxO749UEWABoiIZehEPiY4GNpVdhaFKqSTu+QrlU6D2dPAfubRmtJTi4K4YkQ5eXw==}
-    engines: {node: '>=14'}
-    hasBin: true
-    dev: true
-
-  /prettier@3.3.3:
-    resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true

@@ -4,7 +4,7 @@ import { Options } from "./types"
 export const createLogger = (options: Options) => {
   if (options.logger) {
     return (...args: unknown[]) =>
-      console.log(`\x1b[34m[iracing-api]\x1b[0m`, ...args)
+      console.log(`\x1b[34m[iracing-data-api]\x1b[0m`, ...args)
   } else {
     return () => {}
   }

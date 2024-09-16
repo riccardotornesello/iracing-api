@@ -3,7 +3,7 @@
 ## API Client
 
 ```ts
-import { iRacingAPI } from "iracing-api"
+import { iRacingAPI } from "iracing-data-api"
 
 const ir = new iRacingAPI(options)
 ```

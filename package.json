@@ -1,31 +1,12 @@
 {
-  "name": "iracing-data-api",
-  "version": "0.1.0",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/riccardotornesello/iracing-data-api.git"
-  },
-  "author": "Riccardo Tornesello",
-  "bugs": {
-    "url": "https://github.com/riccardotornesello/iracing-data-api/issues"
-  },
-  "homepage": "https://github.com/riccardotornesello/iracing-data-api",
+  "name": "iracing-data-api-root",
+  "version": "0.0.0",
   "scripts": {
-    "docs:dev": "pnpm --filter iracing-api-docs dev",
-    "docs:build": "pnpm --filter iracing-api-docs build",
-    "docs:serve": "pnpm --filter iracing-api-docs serve",
+    "docs:dev": "pnpm --filter iracing-data-api-docs dev",
+    "docs:build": "pnpm --filter iracing-data-api-docs build",
+    "docs:serve": "pnpm --filter iracing-data-api-docs serve",
     "build": "pnpm --filter iracing-data-api build",
-    "format": "prettier --write ."
+    "format": "pnpm -r format"
   },
-  "main": "./iracing-data-api/dist/index.js",
-  "module": "./iracing-data-api/dist/index.mjs",
-  "types": "./iracing-data-api/dist/index.d.ts",
-  "files": [
-    "iracing-data-api/dist",
-    "README.md"
-  ],
-  "devDependencies": {
-    "prettier": "^3.3.3"
-  },
-  "packageManager": "pnpm@8.14.0+sha1.bb42032ff80dba5f9245bc1b03470d2fa0b7fb2f"
+  "packageManager": "pnpm@8.14.0"
 }

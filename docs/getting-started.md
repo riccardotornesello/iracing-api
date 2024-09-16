@@ -2,24 +2,24 @@
 
 ## Installation
 
-Add **iracing-api** to your project by running the following command:
+Add **iracing-data-api** to your project by running the following command:
 
 ::: code-group
 
 ```sh [npm]
-$ npm add iracing-api
+$ npm add iracing-data-api
 ```
 
 ```sh [pnpm]
-$ pnpm add iracing-api
+$ pnpm add iracing-data-api
 ```
 
 ```sh [yarn]
-$ yarn add iracing-api
+$ yarn add iracing-data-api
 ```
 
 ```sh [bun]
-$ bun add iracing-api
+$ bun add iracing-data-api
 ```
 
 :::
@@ -29,7 +29,7 @@ $ bun add iracing-api
 To use the iRacing API, you have to log in first, and then you can request data. Here is a basic example:
 
 ```ts
-import IracingAPI from "iracing-api"
+import IracingAPI from "iracing-data-api"
 
 const irUser = "FOO@gmail.com"
 const irPass = "BAR"

@@ -1,4 +1,6 @@
-import CryptoJS from "crypto-js"
+import { createHash } from "crypto"
 
 export const encryptPassword = (email: string, password: string) =>
-  CryptoJS.enc.Base64.stringify(CryptoJS.SHA256(password + email.toLowerCase()))
+  createHash("sha256")
+    .update(password + email.toLowerCase())
+    .digest("base64")
