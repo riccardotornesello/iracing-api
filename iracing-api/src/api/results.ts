@@ -20,10 +20,7 @@ export class ResultsAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   get = (params: ResultsGetParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/results/get",
-      params
-    )
+    this._getData<any>("data/results/get", params)
 
   /**
    * @param {ResultsEventLogParams} params - The params required by the API.
@@ -33,10 +30,7 @@ export class ResultsAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   eventLog = (params: ResultsEventLogParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/results/event_log",
-      params
-    )
+    this._getData<any>("data/results/event_log", params)
 
   /**
    * @param {ResultsLapChartDataParams} params - The params required by the API.
@@ -46,10 +40,7 @@ export class ResultsAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   lapChartData = (params: ResultsLapChartDataParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/results/lap_chart_data",
-      params
-    )
+    this._getData<any>("data/results/lap_chart_data", params)
 
   /**
    * @param {ResultsLapDataParams} params - The params required by the API.
@@ -61,10 +52,7 @@ export class ResultsAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   lapData = (params: ResultsLapDataParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/results/lap_data",
-      params
-    )
+    this._getData<any>("data/results/lap_data", params)
 
   /**
    * Hosted and league sessions.
@@ -92,10 +80,7 @@ export class ResultsAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   searchHosted = (params: ResultsSearchHostedParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/results/search_hosted",
-      params
-    )
+    this._getData<any>("data/results/search_hosted", params)
 
   /**
    * Official series.
@@ -122,10 +107,7 @@ export class ResultsAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   searchSeries = (params: ResultsSearchSeriesParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/results/search_series",
-      params
-    )
+    this._getData<any>("data/results/search_series", params)
 
   /**
    * @param {ResultsSeasonResultsParams} params - The params required by the API.
@@ -136,8 +118,5 @@ export class ResultsAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   seasonResults = (params: ResultsSeasonResultsParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/results/season_results",
-      params
-    )
+    this._getData<any>("data/results/season_results", params)
 }

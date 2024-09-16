@@ -10,8 +10,5 @@ export class TimeAttackAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   memberSeasonResults = (params: TimeAttackMemberSeasonResultsParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/time_attack/member_season_results",
-      params
-    )
+    this._getData<any>("data/time_attack/member_season_results", params)
 }

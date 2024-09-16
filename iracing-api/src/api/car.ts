@@ -6,12 +6,11 @@ export class CarAPI extends API {
    * @returns {Promise<any>}
    * @throws {Error} - Throws an exception if the API call fails.
    */
-  assets = () =>
-    this._getData<any>("https://members-ng.iracing.com/data/car/assets")
+  assets = () => this._getData<any>("data/car/assets")
 
   /**
    * @returns {Promise<any>}
    * @throws {Error} - Throws an exception if the API call fails.
    */
-  get = () => this._getData<any>("https://members-ng.iracing.com/data/car/get")
+  get = () => this._getData<any>("data/car/get")
 }

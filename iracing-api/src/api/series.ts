@@ -7,15 +7,13 @@ export class SeriesAPI extends API {
    * @returns {Promise<any>}
    * @throws {Error} - Throws an exception if the API call fails.
    */
-  assets = () =>
-    this._getData<any>("https://members-ng.iracing.com/data/series/assets")
+  assets = () => this._getData<any>("data/series/assets")
 
   /**
    * @returns {Promise<any>}
    * @throws {Error} - Throws an exception if the API call fails.
    */
-  get = () =>
-    this._getData<any>("https://members-ng.iracing.com/data/series/get")
+  get = () => this._getData<any>("data/series/get")
 
   /**
    * Get all seasons for a series.
@@ -26,10 +24,7 @@ export class SeriesAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   pastSeasons = (params: SeriesPastSeasonsParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/series/past_seasons",
-      params
-    )
+    this._getData<any>("data/series/past_seasons", params)
 
   /**
    * @param {SeriesSeasonsParams} params - The params required by the API.
@@ -38,18 +33,12 @@ export class SeriesAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   seasons = (params: SeriesSeasonsParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/series/seasons",
-      params
-    )
+    this._getData<any>("data/series/seasons", params)
 
   /**
    * To get series and seasons for which standings should be available, filter the list by official: true.
    * @returns {Promise<any>}
    * @throws {Error} - Throws an exception if the API call fails.
    */
-  statsSeries = () =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/series/stats_series"
-    )
+  statsSeries = () => this._getData<any>("data/series/stats_series")
 }

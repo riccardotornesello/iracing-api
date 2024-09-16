@@ -15,10 +15,7 @@ export class SeasonAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   list = (params: SeasonListParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/season/list",
-      params
-    )
+    this._getData<any>("data/season/list", params)
 
   /**
    * @param {SeasonRaceGuideParams} params - The params required by the API.
@@ -28,10 +25,7 @@ export class SeasonAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   raceGuide = (params: SeasonRaceGuideParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/season/race_guide",
-      params
-    )
+    this._getData<any>("data/season/race_guide", params)
 
   /**
    * @param {SeasonSpectatorSubsessionidsParams} params - The params required by the API.
@@ -40,10 +34,7 @@ export class SeasonAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   spectatorSubsessionids = (params: SeasonSpectatorSubsessionidsParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/season/spectator_subsessionids",
-      params
-    )
+    this._getData<any>("data/season/spectator_subsessionids", params)
 
   /**
    * @param {SeasonSpectatorSubsessionidsDetailParams} params - The params required by the API.
@@ -54,9 +45,5 @@ export class SeasonAPI extends API {
    */
   spectatorSubsessionidsDetail = (
     params: SeasonSpectatorSubsessionidsDetailParams
-  ) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/season/spectator_subsessionids_detail",
-      params
-    )
+  ) => this._getData<any>("data/season/spectator_subsessionids_detail", params)
 }

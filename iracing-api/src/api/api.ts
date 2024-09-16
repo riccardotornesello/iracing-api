@@ -1,7 +1,7 @@
 import humps from "humps"
 
 import { API_URL } from "../consts"
-import { logger } from "../logger"
+import { createLogger } from "../logger"
 import { RateLimiter } from "../rate-limiter"
 import type { FetchCookie, Options } from "../types"
 
@@ -11,6 +11,7 @@ export class API {
   fetchCookie: FetchCookie
   options: Options
   rateLimiter: RateLimiter
+  logger: (...args: unknown[]) => void
 
   constructor(
     fetchCookie: FetchCookie,
@@ -20,6 +21,7 @@ export class API {
     this.fetchCookie = fetchCookie
     this.options = options
     this.rateLimiter = rateLimiter
+    this.logger = createLogger(options)
   }
 
   _getData = async <Data = Record<string, unknown>, Parameters = void>(
@@ -36,7 +38,7 @@ export class API {
       const parsedParams = `[${Object.entries(params ?? {})
         .map(([key, value]) => `${key}=${value}`)
         .join(", ")}]`
-      logger(`Getting data from '${endpoint}'`, parsedParams)
+      this.logger(`Getting data from '${endpoint}'`, parsedParams)
 
       const url = this._getUrl(endpoint, params)
       const response = await this.fetchCookie(url, {
@@ -53,7 +55,7 @@ export class API {
 
       return data as Data | undefined
     } catch (error) {
-      logger(`Error getting data from '${endpoint}'`)
+      this.logger(`Error getting data from '${endpoint}'`)
       return undefined
     }
   }

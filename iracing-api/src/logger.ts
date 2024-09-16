@@ -1,13 +1,11 @@
-import { Options } from "./types"
+import { Options } from "./types.d"
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export let logger = (..._args: unknown[]) => {}
-
+// TODO: replace with actual logger
 export const createLogger = (options: Options) => {
   if (options.logger) {
-    logger = (...args: unknown[]) =>
+    return (...args: unknown[]) =>
       console.log(`\x1b[34m[iracing-api]\x1b[0m`, ...args)
   } else {
-    logger = () => {}
+    return () => {}
   }
 }

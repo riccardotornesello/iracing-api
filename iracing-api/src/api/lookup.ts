@@ -11,17 +11,13 @@ export class LookupAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   clubHistory = (params: LookupClubHistoryParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/lookup/club_history",
-      params
-    )
+    this._getData<any>("data/lookup/club_history", params)
 
   /**
    * @returns {Promise<any>}
    * @throws {Error} - Throws an exception if the API call fails.
    */
-  countries = () =>
-    this._getData<any>("https://members-ng.iracing.com/data/lookup/countries")
+  countries = () => this._getData<any>("data/lookup/countries")
 
   /**
    * @param {LookupDriversParams} params - The params required by the API.
@@ -31,23 +27,18 @@ export class LookupAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   drivers = (params: LookupDriversParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/lookup/drivers",
-      params
-    )
+    this._getData<any>("data/lookup/drivers", params)
 
   /**
    * ?weather=weather_wind_speed_units&weather=weather_wind_speed_max&weather=weather_wind_speed_min&licenselevels=licenselevels.
    * @returns {Promise<any>}
    * @throws {Error} - Throws an exception if the API call fails.
    */
-  get = () =>
-    this._getData<any>("https://members-ng.iracing.com/data/lookup/get")
+  get = () => this._getData<any>("data/lookup/get")
 
   /**
    * @returns {Promise<any>}
    * @throws {Error} - Throws an exception if the API call fails.
    */
-  licenses = () =>
-    this._getData<any>("https://members-ng.iracing.com/data/lookup/licenses")
+  licenses = () => this._getData<any>("data/lookup/licenses")
 }

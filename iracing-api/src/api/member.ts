@@ -14,10 +14,7 @@ export class MemberAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   awards = (params: MemberAwardsParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/member/awards",
-      params
-    )
+    this._getData<any>("data/member/awards", params)
 
   /**
    * @param {MemberChartDataParams} params - The params required by the API.
@@ -28,10 +25,7 @@ export class MemberAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   chartData = (params: MemberChartDataParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/member/chart_data",
-      params
-    )
+    this._getData<any>("data/member/chart_data", params)
 
   /**
    * @param {MemberGetParams} params - The params required by the API.
@@ -41,15 +35,14 @@ export class MemberAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   get = (params: MemberGetParams) =>
-    this._getData<any>("https://members-ng.iracing.com/data/member/get", params)
+    this._getData<any>("data/member/get", params)
 
   /**
    * Always the authenticated member.
    * @returns {Promise<any>}
    * @throws {Error} - Throws an exception if the API call fails.
    */
-  info = () =>
-    this._getData<any>("https://members-ng.iracing.com/data/member/info")
+  info = () => this._getData<any>("data/member/info")
 
   /**
    * Always the authenticated member.
@@ -57,9 +50,7 @@ export class MemberAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   participationCredits = () =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/member/participation_credits"
-    )
+    this._getData<any>("data/member/participation_credits")
 
   /**
    * @param {MemberProfileParams} params - The params required by the API.
@@ -68,8 +59,5 @@ export class MemberAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   profile = (params: MemberProfileParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/member/profile",
-      params
-    )
+    this._getData<any>("data/member/profile", params)
 }

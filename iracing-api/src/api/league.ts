@@ -20,10 +20,7 @@ export class LeagueAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   custLeagueSessions = (params: LeagueCustLeagueSessionsParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/league/cust_league_sessions",
-      params
-    )
+    this._getData<any>("data/league/cust_league_sessions", params)
 
   /**
    * @param {LeagueDirectoryParams} params - The params required by the API.
@@ -43,10 +40,7 @@ export class LeagueAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   directory = (params: LeagueDirectoryParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/league/directory",
-      params
-    )
+    this._getData<any>("data/league/directory", params)
 
   /**
    * @param {LeagueGetParams} params - The params required by the API.
@@ -56,7 +50,7 @@ export class LeagueAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   get = (params: LeagueGetParams) =>
-    this._getData<any>("https://members-ng.iracing.com/data/league/get", params)
+    this._getData<any>("data/league/get", params)
 
   /**
    * @param {LeagueGetPointsSystemsParams} params - The params required by the API.
@@ -66,10 +60,7 @@ export class LeagueAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   getPointsSystems = (params: LeagueGetPointsSystemsParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/league/get_points_systems",
-      params
-    )
+    this._getData<any>("data/league/get_points_systems", params)
 
   /**
    * @param {LeagueMembershipParams} params - The params required by the API.
@@ -79,10 +70,7 @@ export class LeagueAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   membership = (params: LeagueMembershipParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/league/membership",
-      params
-    )
+    this._getData<any>("data/league/membership", params)
 
   /**
    * @param {LeagueRosterParams} params - The params required by the API.
@@ -92,10 +80,7 @@ export class LeagueAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   roster = (params: LeagueRosterParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/league/roster",
-      params
-    )
+    this._getData<any>("data/league/roster", params)
 
   /**
    * @param {LeagueSeasonsParams} params - The params required by the API.
@@ -105,10 +90,7 @@ export class LeagueAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   seasons = (params: LeagueSeasonsParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/league/seasons",
-      params
-    )
+    this._getData<any>("data/league/seasons", params)
 
   /**
    * @param {LeagueSeasonStandingsParams} params - The params required by the API.
@@ -120,10 +102,7 @@ export class LeagueAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   seasonStandings = (params: LeagueSeasonStandingsParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/league/season_standings",
-      params
-    )
+    this._getData<any>("data/league/season_standings", params)
 
   /**
    * @param {LeagueSeasonSessionsParams} params - The params required by the API.
@@ -134,8 +113,5 @@ export class LeagueAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   seasonSessions = (params: LeagueSeasonSessionsParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/league/season_sessions",
-      params
-    )
+    this._getData<any>("data/league/season_sessions", params)
 }

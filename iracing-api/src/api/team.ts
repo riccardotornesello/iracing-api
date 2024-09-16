@@ -9,6 +9,5 @@ export class TeamAPI extends API {
    * @returns {Promise<any>}
    * @throws {Error} - Throws an exception if the API call fails.
    */
-  get = (params: TeamGetParams) =>
-    this._getData<any>("https://members-ng.iracing.com/data/team/get", params)
+  get = (params: TeamGetParams) => this._getData<any>("data/team/get", params)
 }

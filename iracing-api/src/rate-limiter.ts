@@ -1,5 +1,5 @@
 import { DEFAULT_OPTIONS } from "./consts"
-import { logger } from "./logger"
+import { createLogger } from "./logger"
 import { Options } from "./types"
 
 export interface RateLimit {
@@ -12,8 +12,11 @@ export class RateLimiter {
   isActive: boolean
   rateLimit: RateLimit | undefined
   limitPadding: number
+  logger: (...args: unknown[]) => void
 
   constructor(options: Options) {
+    this.logger = createLogger(options)
+
     if (options.manageRateLimit) {
       this.isActive = true
       this.limitPadding =
@@ -48,7 +51,7 @@ export class RateLimiter {
     const timeToReset =
       this.rateLimit.reset.getTime() - new Date().getTime() + 1000
 
-    logger(
+    this.logger(
       `Rate limit exceeded. Waiting for reset at ${this.rateLimit.reset.toLocaleString()}...`
     )
 

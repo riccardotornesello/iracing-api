@@ -6,13 +6,11 @@ export class TrackAPI extends API {
    * @returns {Promise<any>}
    * @throws {Error} - Throws an exception if the API call fails.
    */
-  assets = () =>
-    this._getData<any>("https://members-ng.iracing.com/data/track/assets")
+  assets = () => this._getData<any>("data/track/assets")
 
   /**
    * @returns {Promise<any>}
    * @throws {Error} - Throws an exception if the API call fails.
    */
-  get = () =>
-    this._getData<any>("https://members-ng.iracing.com/data/track/get")
+  get = () => this._getData<any>("data/track/get")
 }

@@ -1,11 +1,8 @@
 import makeFetchCookie from "fetch-cookie"
 
-import {
-  API_URL,
-  DEFAULT_OPTIONS,
-} from "./consts.js"
+import { API_URL, DEFAULT_OPTIONS } from "./consts.js"
 import { encryptPassword } from "./helpers.js"
-import { createLogger, logger } from "./logger"
+import { createLogger } from "./logger"
 import { RateLimiter } from "./rate-limiter"
 import type { FetchCookie, Options } from "./types"
 
@@ -34,6 +31,7 @@ export default class IracingAPI {
   fetchCookie: FetchCookie
   options: Options
   rateLimiter: RateLimiter
+  logger: (...args: unknown[]) => void
 
   // API
   car: CarAPI
@@ -122,7 +120,7 @@ export default class IracingAPI {
     )
     this.track = new TrackAPI(this.fetchCookie, this.options, this.rateLimiter)
 
-    createLogger(this.options)
+    this.logger = createLogger(this.options)
   }
 
   /**
@@ -146,13 +144,13 @@ export default class IracingAPI {
     })
 
     if (response.status !== 200) {
-      logger("Login failed...")
+      this.logger("Login failed...")
       return {
         error: response.statusText ?? "Failed to login to iracing-api",
       }
     }
 
-    logger("Login successful...")
+    this.logger("Login successful...")
 
     return await response.json()
   }

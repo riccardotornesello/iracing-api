@@ -10,10 +10,7 @@ export class HostedAPI extends API {
    * @throws {Error} - Throws an exception if the API call fails.
    */
   combinedSessions = (params: HostedCombinedSessionsParams) =>
-    this._getData<any>(
-      "https://members-ng.iracing.com/data/hosted/combined_sessions",
-      params
-    )
+    this._getData<any>("data/hosted/combined_sessions", params)
 
   /**
    * Sessions that can be joined as a driver.
@@ -21,6 +18,5 @@ export class HostedAPI extends API {
    * @returns {Promise<any>}
    * @throws {Error} - Throws an exception if the API call fails.
    */
-  sessions = () =>
-    this._getData<any>("https://members-ng.iracing.com/data/hosted/sessions")
+  sessions = () => this._getData<any>("data/hosted/sessions")
 }
