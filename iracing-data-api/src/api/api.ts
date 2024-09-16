@@ -55,7 +55,7 @@ export class API {
       return (await this._getLinkData(data.link)) as Data
     } catch (error) {
       this.logger(`Error getting data from '${endpoint}'`)
-      return undefined
+      throw error
     }
   }
 
