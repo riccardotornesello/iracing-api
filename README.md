@@ -31,3 +31,9 @@ const main = async () => {
 
 main().then(() => "Done")
 ```
+
+More information can be found in the package's [documentation](iracing-data-api/README.md).
+
+## Project status
+
+This project is actively used but since iRacing's API are not frequently updated, it will not receive many updates.
